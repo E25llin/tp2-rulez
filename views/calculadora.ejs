@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+ <head>
+<meta charset="UTF-8">
+<title>Calculadora</title>
+
+</head>
+<body>
+   <h1>Digite dois números:</h1>
+
+   <form action="/" method="post" id="formizinho">
+   <label> Número 1: </label>
+   <input id= "n1" name="n1" />
+   <label> Número 2: </label>
+   <input id= "n2"  name="n2"/>
+   <input type="button" onclick="mudatudo('/soma')" value="+"></input>
+   <input type="button" onclick="mudatudo('/subt')" value="*"></input>
+   <input type="button" onclick="mudatudo('/multi')" value="-"></input>
+   <input type="button" onclick="mudatudo('/divi')" value="/"></input>
+   </form>
+   <br>
+
+   <h1>Resultado:</h1>
+   <h1 id="resultado"><%=resultado%></h1>
+   <script>
+      function mudatudo(rota){
+         formizinho.action = rota
+         if (n1.value == "" || n2.value == "") {
+            document.getElementById('resultado').innerHTML = ''
+            alert('Esse espaço está vazio')
+
+         }else {
+            if (rota == "/divi" && n2.value == 0) {
+               document.getElementById('resultado').innerHTML = ''
+               alert('Não tem como dividir com 0')
+            }else {
+               formizinho.submit()
+            }
+         }
+
+      }
+   </script>
+</body>
+</html>
